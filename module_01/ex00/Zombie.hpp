@@ -1,5 +1,5 @@
-#ifndef MYCLASS_HPP
-#define MYCLASS_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <string>
 
