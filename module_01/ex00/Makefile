@@ -14,8 +14,8 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES) $(HEADER)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 
 clean:
