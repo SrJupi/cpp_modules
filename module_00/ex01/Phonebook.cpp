@@ -50,7 +50,11 @@ int Phonebook::getSearchInput(int n)
     std::string input;
     
     std::cout << "Select the index of the contact that you want more information:\n>>> ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input))
+    {
+        std::cout << "\nEOF found...\nExiting...\n";
+        return -1;
+    }
     try
     {
         tmp = std::stoi(input);
@@ -58,17 +62,17 @@ int Phonebook::getSearchInput(int n)
     catch (...)
     {
         std::cout << "Input is not a number!\n";
-        return -1;
+        return -2;
     }
     if (tmp < 0 || tmp >= n)
     {
         std::cout << "Invalid index!\n";
-        return -1;
+        return -2;
     }
     return tmp;
 }
     
-void Phonebook::addContact(void)
+bool Phonebook::addContact(void)
 {
     std::string newInfo[5];
     int i;
@@ -83,7 +87,11 @@ void Phonebook::addContact(void)
     while (i < 5)
     {
         std::cout << "Insert item " << std::to_string(i + 1) << ": ";
-        std::getline(std::cin, newInfo[i]);
+        if (!std::getline(std::cin, newInfo[i]))
+        {
+            std::cout << "\nEOF found...\nExiting...\n";
+            return false;
+        }
         if (!newInfo[i].empty())
             i++;
         else
@@ -91,6 +99,7 @@ void Phonebook::addContact(void)
     }
     contacts[index % 8].updateContact(newInfo);
     index++;
+    return true;
 };
 
 int Phonebook::getSize(void)
@@ -101,7 +110,7 @@ int Phonebook::getSize(void)
         return 8;
 };
 
-void Phonebook::searchContact(void)
+bool Phonebook::searchContact(void)
 {
     int n;
     
@@ -109,10 +118,13 @@ void Phonebook::searchContact(void)
     if (!n)
     {
         std::cout << "Your phonebook is empty. Nothing to see here...\n";
-        return ;
+        return true;
     }
     this->generateSearchTable(n);
     n = this->getSearchInput(n);
-    if (n >= 0)
+    if (n == -1)
+        return false;
+    if (n > 0)
         contacts[n].printContact();
+    return true;
 };

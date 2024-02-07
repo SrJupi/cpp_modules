@@ -23,9 +23,9 @@ int main(void)
         else if (input == "EXIT")
             isOn = false;
         else if (input == "SEARCH")
-            pb.searchContact();
+            isOn = pb.searchContact();
         else if (input == "ADD")
-            pb.addContact();
+            isOn = pb.addContact();
         else
             std::cout << "Cannot understand: " << input << "!\n";
     }

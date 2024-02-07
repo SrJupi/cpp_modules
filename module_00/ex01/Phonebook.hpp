@@ -17,9 +17,9 @@ class Phonebook
 
     public:
     Phonebook(void);
-    void addContact();
+    bool addContact();
     int getSize(void);
-    void searchContact(void);
+    bool searchContact(void);
 };
 
 #endif
