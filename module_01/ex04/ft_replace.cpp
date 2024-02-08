@@ -17,11 +17,11 @@ static void do_replace(std::string& str, std::string old_str, std::string new_st
 int ft_replace(std::string filename, std::string s1, std::string s2)
 {
     std::string inText;
-    std::ifstream inFile(filename);
+    std::ifstream inFile(filename.c_str());
     if (inFile.fail())
         return 1;
-    std::string outText = std::string(filename) + ".replace";
-    std::ofstream ofFile(outText);
+    std::string outText (filename + ".replace");
+    std::ofstream ofFile(outText.c_str());
     if (ofFile.fail())
         return 2;
     while (getline (inFile, inText)) {

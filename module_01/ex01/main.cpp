@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "Zombie.hpp"
 
 static int getInput(int argc, char **argv);
@@ -30,7 +31,7 @@ static int getInput(int argc, char **argv)
     {
         try
         {
-            return std::stoi(argv[1]);
+            return std::atoi(argv[1]);
         }
         catch (...)
         {

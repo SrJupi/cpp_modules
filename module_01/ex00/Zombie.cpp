@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)=default;
+Zombie::Zombie(void) {};
 
 Zombie::Zombie(std::string name)
 {
