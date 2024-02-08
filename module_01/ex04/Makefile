@@ -1,9 +1,9 @@
-NAME = replace_tests
+NAME = ft_replace
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC_FILES = main.cpp ft_replace.cpp
+SRC_FILES = main.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 

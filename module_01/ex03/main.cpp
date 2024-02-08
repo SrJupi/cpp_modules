@@ -4,7 +4,6 @@
 #include "HumanA.hpp"
 
 
-//-std=c++98 -pedantic
 int main() {
 	{
 		Weapon club = Weapon("crude spiked club");

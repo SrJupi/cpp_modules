@@ -1,11 +1,11 @@
-NAME = zombie01
+NAME = violence
 
-HEADER = Zombie.hpp
+HEADER = Weapon.hpp HumanB.hpp HumanA.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC_FILES = main.cpp zombieHorde.cpp Zombie.cpp
+SRC_FILES = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 
