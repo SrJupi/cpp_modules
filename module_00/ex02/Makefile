@@ -3,7 +3,7 @@ NAME = bank_log
 HEADER = Account.hpp
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC_FILES = tests.cpp Account.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

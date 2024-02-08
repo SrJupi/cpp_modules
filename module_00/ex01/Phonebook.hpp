@@ -14,6 +14,7 @@ class Phonebook
     void printEmptyLine(void);
     void generateSearchTable(int n);
     int getSearchInput(int n);
+    bool isNumber(const std::string& str);
 
     public:
     Phonebook(void);

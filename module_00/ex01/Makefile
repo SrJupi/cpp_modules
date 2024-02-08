@@ -3,7 +3,7 @@ NAME = phonebook
 HEADER = Contact.hpp Phonebook.hpp
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC_FILES = main.cpp Contact.cpp Phonebook.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

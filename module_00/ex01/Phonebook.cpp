@@ -3,13 +3,14 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
 
-Phonebook::Phonebook(void): index(0) {};
+Phonebook::Phonebook(void): index(0) {}
 
 void Phonebook::displayFullContact(Contact c)
 {
     c.printContact();
-};
+}
 
 void Phonebook::printHeader(void)
 {
@@ -17,7 +18,7 @@ void Phonebook::printHeader(void)
     std::cout << std::setw(10) << std::right << "FIRST NAME" << "|";
     std::cout << std::setw(10) << std::right << "LAST NAME" << "|";
     std::cout << std::setw(10) << std::right << "NICKNAME" << "|" << std::endl;
-};
+}
 
 void Phonebook::printEmptyLine(void)
 {
@@ -26,7 +27,7 @@ void Phonebook::printEmptyLine(void)
     std::cout << std::setw(11) << "|";
     std::cout << std::setw(11) << "|" << std::endl;
     std::cout << std::setfill(' ');
-};
+}
 
 void Phonebook::generateSearchTable(int n)
 {
@@ -44,6 +45,21 @@ void Phonebook::generateSearchTable(int n)
     this->printEmptyLine();
 }
 
+bool Phonebook::isNumber(const std::string& str) {
+    int i = 0;
+
+    if (str[i] == '-')
+     i++;
+    while(str[i])
+    {
+        if (!std::isdigit(str[i])) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
 int Phonebook::getSearchInput(int n)
 {
     int tmp;
@@ -52,22 +68,19 @@ int Phonebook::getSearchInput(int n)
     std::cout << "Select the index of the contact that you want more information:\n>>> ";
     if (!std::getline(std::cin, input))
     {
-        std::cout << "\nEOF found...\nExiting...\n";
+        std::cout << "\nReturning to main...\n";
         return -1;
     }
-    try
-    {
-        tmp = std::stoi(input);
-    }
-    catch (...)
+    if (input.empty() || !isNumber(input))
     {
         std::cout << "Input is not a number!\n";
-        return -2;
+        return -1;
     }
+    tmp = std::atoi(input.c_str());
     if (tmp < 0 || tmp >= n)
     {
         std::cout << "Invalid index!\n";
-        return -2;
+        return -1;
     }
     return tmp;
 }
@@ -86,11 +99,11 @@ bool Phonebook::addContact(void)
     5. Darkest secret.\n";
     while (i < 5)
     {
-        std::cout << "Insert item " << std::to_string(i + 1) << ": ";
+        std::cout << "Insert item " << i + 1 << ": ";
         if (!std::getline(std::cin, newInfo[i]))
         {
-            std::cout << "\nEOF found...\nExiting...\n";
-            return false;
+            std::cout << "\nReturning to main...\n";
+            return true;
         }
         if (!newInfo[i].empty())
             i++;
@@ -100,7 +113,7 @@ bool Phonebook::addContact(void)
     contacts[index % 8].updateContact(newInfo);
     index++;
     return true;
-};
+}
 
 int Phonebook::getSize(void)
 {
@@ -108,7 +121,7 @@ int Phonebook::getSize(void)
         return index;
     else
         return 8;
-};
+}
 
 bool Phonebook::searchContact(void)
 {
@@ -122,9 +135,7 @@ bool Phonebook::searchContact(void)
     }
     this->generateSearchTable(n);
     n = this->getSearchInput(n);
-    if (n == -1)
-        return false;
-    if (n > 0)
+    if (n >= 0)
         contacts[n].printContact();
     return true;
-};
+}
