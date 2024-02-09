@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 const int Fixed::fractional = 8;
@@ -6,6 +7,16 @@ const int Fixed::fractional = 8;
 Fixed::Fixed() : number(0)
 {
     std::cout << "Default Constructor Called" << std::endl;
+}
+
+Fixed::Fixed(const int num) : number(num * (1 << Fixed::fractional))
+{
+    std::cout << "Integer Constructor Called" << std::endl;
+}
+
+Fixed::Fixed(const float num) : number(roundf(num * (1 << Fixed::fractional)))
+{
+    std::cout << "Float Constructor Called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &ref)
@@ -31,11 +42,26 @@ Fixed &Fixed::operator=(const Fixed &ref)
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return number;
 }
 
 void Fixed::setRawBits(int const raw)
 {
     number = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+    return (float)getRawBits() / (float)(1 << fractional);
+}
+
+int Fixed::toInt(void) const
+{
+    return getRawBits() / (1 << fractional);
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }
