@@ -5,6 +5,7 @@ int main(int argc, char **argv)
 {
     int j;
     
+    (void)argc;
     argv++;
     if (!(*argv))
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
