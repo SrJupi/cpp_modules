@@ -1,4 +1,4 @@
-NAME = fixed02
+NAME = fixed01
 
 HEADER = Fixed.hpp
 
