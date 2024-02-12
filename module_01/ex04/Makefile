@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o : %.cpp
+%.o : %.cpp Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 
@@ -24,4 +24,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean_readline re
+.PHONY: all clean fclean re

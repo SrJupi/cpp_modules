@@ -11,10 +11,10 @@ OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES) $(HEADER)
+$(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 
@@ -26,4 +26,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean_readline re
+.PHONY: all clean fclean re
