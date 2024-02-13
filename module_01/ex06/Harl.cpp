@@ -34,8 +34,9 @@ void Harl::complain(std::string s)
     {
         if (showMustGoOn || names[i] == s)
         {
+            if (showMustGoOn)
+                std::cout << std::endl;
             std::cout << "[ ";
-
             j = 0;
             while (names[i][j])
             {

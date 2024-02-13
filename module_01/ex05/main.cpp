@@ -2,13 +2,25 @@
 #include <string>
 #include "Harl.hpp"
 
-int main(void)
+static char *to_lower(char *str)
+{
+    char *head;
+
+    head = str;
+    while (*str)
+    {
+        *str = std::tolower(*str);
+        str++;      
+    }
+    return head;
+}
+
+int main(int argc, char *argv[])
 {
     Harl harl;
     
-    harl.complain("error");
-    harl.complain("debug");
-    harl.complain("warning");
-    harl.complain("info");
+    if (argc != 2)
+        return std::cout << "Wrong number of argments\nUsage: ./harlFilter [LEVEL]" << std::endl, 1;
+    harl.complain(to_lower(argv[1]));
 	return 0;
 }

@@ -31,7 +31,8 @@ void Harl::complain(std::string s)
     while(i < 4)
     {
         if (names[i] == s)
-            (this->*functions[i])();
+            return (this->*functions[i])();
         i++;
     }
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 };
