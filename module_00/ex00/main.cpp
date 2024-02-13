@@ -3,15 +3,12 @@
 
 int main(int argc, char **argv)
 {
-    int j;
-    
     (void)argc;
     argv++;
     if (!(*argv))
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     while(*argv)
     {
-        j = 0;
         while (**argv)
         {
             std::cout << (char) std::toupper(**argv);
