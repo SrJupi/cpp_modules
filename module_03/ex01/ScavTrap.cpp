@@ -48,5 +48,6 @@ void ScavTrap::guardGate(void)
         std::cout << "Cannot guard the Gate... Am I dead? Am I without energy? Is it worth to live without energy?" << std::endl;
         return ;
     }
+    energyPoints--;
     std::cout << "\n\n" << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
 }
