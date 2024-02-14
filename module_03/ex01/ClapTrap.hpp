@@ -10,6 +10,7 @@ protected:
     int         hitPoints;
     int         energyPoints;
     int         attackDamage;
+    void        doRealAttack(const std::string &target, const std::string &trapName);
 
 public:
     ClapTrap();

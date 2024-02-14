@@ -3,7 +3,6 @@
 
 #include "ScavTrap.hpp"
 
-
 ScavTrap::ScavTrap() : ClapTrap()
 {
     name = "DefaultScav";
@@ -13,7 +12,7 @@ ScavTrap::ScavTrap() : ClapTrap()
     std::cout << "ScavTrap Default Constructor - " << name << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& newName) : ClapTrap(newName)
+ScavTrap::ScavTrap(const std::string &newName) : ClapTrap(newName)
 {
     hitPoints = 100;
     energyPoints = 50;
@@ -21,7 +20,7 @@ ScavTrap::ScavTrap(const std::string& newName) : ClapTrap(newName)
     std::cout << "ScavTrap String Constructor - " << name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& ref) : ClapTrap(ref)
+ScavTrap::ScavTrap(const ScavTrap &ref) : ClapTrap(ref)
 {
     std::cout << "ScavTrap Copy Constructor - " << name << std::endl;
 }
@@ -31,8 +30,10 @@ ScavTrap::~ScavTrap()
     std::cout << "ScavTrap Destructor - " << name << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& ref) {
-    if (this != &ref) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &ref)
+{
+    if (this != &ref)
+    {
         this->name = ref.name;
         this->hitPoints = ref.hitPoints;
         this->energyPoints = ref.energyPoints;
@@ -46,19 +47,14 @@ void ScavTrap::guardGate(void)
     if (!hitPoints || !energyPoints)
     {
         std::cout << "Cannot guard the Gate... Am I dead? Am I without energy? Is it worth to live without energy?" << std::endl;
-        return ;
+        return;
     }
     energyPoints--;
-    std::cout << "\n\n" << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
+    std::cout << "\n\n"
+              << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
 }
 
-void    ScavTrap::attack(const std::string &target)
+void ScavTrap::attack(const std::string &target)
 {
-    if (!hitPoints || !energyPoints)
-    {
-        std::cout << "Cannot attack... Am I dead? Am I without energy? Is it worth to live without energy?" << std::endl;
-        return ;
-    }
-    energyPoints--;
-    std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+    doRealAttack(target, "ScavTrap");
 }
