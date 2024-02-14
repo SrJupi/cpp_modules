@@ -1,11 +1,11 @@
 NAME = bsp
 
-HEADER = Fixed.hpp
+HEADER = Fixed.hpp Point.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC_FILES = main.cpp Fixed.cpp
+SRC_FILES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 
@@ -26,4 +26,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean_readline re
+.PHONY: all clean fclean re

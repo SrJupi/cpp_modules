@@ -17,8 +17,10 @@ public:
 
     Point&	operator=(const Point& ref);
 
-    float   getX(void);
-    float   getY(void);
+    float   getX(void) const;
+    float   getY(void) const;
 };
+
+bool	bsp (Point const a, Point const b, Point const c, Point const point);
 
 #endif

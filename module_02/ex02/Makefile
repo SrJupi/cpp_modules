@@ -26,4 +26,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean_readline re
+.PHONY: all clean fclean re
