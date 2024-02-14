@@ -51,3 +51,14 @@ void ScavTrap::guardGate(void)
     energyPoints--;
     std::cout << "\n\n" << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
 }
+
+void    ScavTrap::attack(const std::string &target)
+{
+    if (!hitPoints || !energyPoints)
+    {
+        std::cout << "Cannot attack... Am I dead? Am I without energy? Is it worth to live without energy?" << std::endl;
+        return ;
+    }
+    energyPoints--;
+    std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+}
