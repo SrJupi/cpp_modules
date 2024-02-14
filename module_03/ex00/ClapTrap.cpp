@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(const std::string& newName) : name(newName), hitPoints(10), e
     std::cout << "ClapTrap String Constructor - " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& ref) : name(ref.name + " copy constructed"), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(const ClapTrap& ref) : name(ref.name + " copy constructed"), hitPoints(ref.hitPoints), energyPoints(ref.energyPoints), attackDamage(ref.attackDamage)
 {
     std::cout << "ClapTrap Copy Constructor - " << name << std::endl;
 }
@@ -41,6 +41,7 @@ void    ClapTrap::attack(const std::string &target)
         std::cout << "Cannot attack... Am I dead? Am I without energy? Is it worth to live without energy?" << std::endl;
         return ;
     }
+    energyPoints--;
     std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 }
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -64,4 +65,11 @@ void    ClapTrap::beRepaired(unsigned int amount)
     }
     std::cout << "ClapTrap " << name << " fells replenished! It got " << amount << " of hit points!" << std::endl;
     hitPoints += amount;
+    energyPoints--;
+}
+
+void    ClapTrap::printInfo(void)
+{
+    std::cout << "Hello!\nI am " << name << "." << std::endl;
+    std::cout << "My stats:\nHit points: " << hitPoints << "\nEnergy points: " << energyPoints << "\nAttack damage: " << attackDamage << std::endl;
 }
