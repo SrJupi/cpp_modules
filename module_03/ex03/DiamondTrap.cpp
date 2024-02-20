@@ -28,7 +28,6 @@ DiamondTrap::DiamondTrap(const DiamondTrap& ref) : ClapTrap(ref), ScavTrap(ref),
 {
     this->name = ref.name;
     ClapTrap::name = ref.name + "_clap_name";
-
     *this = ref;
     std::cout << "DiamondTrap Copy Constructor - " << this->name << std::endl;
 }
