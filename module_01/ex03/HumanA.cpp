@@ -8,7 +8,7 @@
 HumanA::HumanA(std::string name, Weapon& w) : HumanB(name)
 {
     this->setWeapon(w);
-    std::cout << "Creating human a - " << name << std::endl;
+    std::cout << "Creating human A - " << name << std::endl;
 }
 
 HumanA::~HumanA(void)

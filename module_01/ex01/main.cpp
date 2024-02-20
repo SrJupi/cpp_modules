@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     int N;
     
     N = getInput(argc, argv);
-    if (N < 0)
+    if (N <= 0)
         return EXIT_FAILURE;
     z = zombieHorde(N, "Horde Zombie");
     i = 0;

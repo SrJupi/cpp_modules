@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 #include "HumanA.hpp"
@@ -12,6 +13,7 @@ int main() {
 		club.setType("some other type of club");
 		bob.attack();
 	} {
+		std::cout << std::endl << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
 		jim.attack();
@@ -20,6 +22,7 @@ int main() {
 		club.setType("some other type of club");
 		jim.attack();
 	 } {
+		std::cout << std::endl << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		HumanA *jim = new HumanA("pointer jim", club);
 		(*jim).attack();
@@ -27,6 +30,7 @@ int main() {
 		(*jim).attack();
 		delete jim;
 	} {
+		std::cout << std::endl << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		HumanB *jim = new HumanA("Jim casted pointer", club);
 		(*jim).attack();

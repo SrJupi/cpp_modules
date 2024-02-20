@@ -5,7 +5,7 @@
 
 HumanB::HumanB(std::string _name): name(_name), weapon(NULL) 
 {
-    std::cout << "Creating human b - " << _name << std::endl;
+    std::cout << "Creating human B - " << _name << std::endl;
 }
 
 HumanB::~HumanB(void)
@@ -22,4 +22,6 @@ void HumanB::attack(void)
 {
     if (weapon)
         std::cout << this->name << " attacks with their " << (*weapon).getType() << std::endl;
+    else
+        std::cout << this->name << " does not have a weapon to attack..." << std::endl;
 }

@@ -19,39 +19,46 @@ echo
 echo "${GREEN}Test Case 1: Replace 'test' with 'example'${NC}"
 echo "./ft_replace $input_file \"test\" \"example\""
 ./ft_replace $input_file "test" "example"
-echo -n "cat $input_file.replace = "
+echo "cat $input_file.replace:"
 cat $input_file.replace
 echo
 
 echo "${GREEN}Test Case 2: Replace 'function' with 'procedure'${NC}"
 echo "./ft_replace $input_file \"function\" \"procedure\""
 ./ft_replace $input_file "function" "procedure"
-echo -n "cat $input_file.replace = "
+echo "cat $input_file.replace:"
 cat $input_file.replace
 echo
 
 echo "${GREEN}Test Case 3: Replace 'string' with 'array'${NC}"
 echo "./ft_replace $input_file \"string\" \"array\""
 ./ft_replace $input_file "string" "array"
-echo -n "cat $input_file.replace = "
+echo "cat $input_file.replace:"
 cat $input_file.replace
 echo
 
-echo "${YELLOW}Test Case 4: Input file is empty${NC}"
+echo "${GREEN}Test Case 4: Replace 'not found' with 'WHAT!'${NC}"
+echo "./ft_replace $input_file \"not found\" \"What!\""
+./ft_replace $input_file "not found" "Waht!"
+echo "cat $input_file.replace:"
+cat $input_file.replace
+echo
+
+echo "${YELLOW}Test Case 5: Input file is empty${NC}"
 touch empty.txt
 echo "touch empty.txt"
 echo "./ft_replace empty.txt \"test\" \"example\""
 ./ft_replace empty.txt "test" "example"
-echo -n "cat empty.txt.replace = "
+echo "cat empty.txt.replace:"
 cat empty.txt.replace
-echo \\n
+echo
 
-echo "${RED}Test Case 5: Fail to open input file${NC}"
+echo "${RED}Test Case 6: Fail to open input file${NC}"
 echo "./ft_replace non_existing_file.txt \"test\" \"example\""
 ./ft_replace non_existing_file.txt "test" "example"
 echo
 
-echo "${RED}Test Case 6: Fail to open output file${NC}"
+echo "${RED}Test Case 7: Fail to open output file${NC}"
 chmod -w test_input.txt.replace
 echo "chmod -w test_input.txt.replace"
 echo "./ft_replace $input_file \"test\" \"example\""
