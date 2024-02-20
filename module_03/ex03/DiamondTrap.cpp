@@ -27,6 +27,8 @@ DiamondTrap::DiamondTrap(const std::string& newName) : ScavTrap(newName), FragTr
 DiamondTrap::DiamondTrap(const DiamondTrap& ref) : ClapTrap(ref), ScavTrap(ref), FragTrap(ref)
 {
     this->name = ref.name;
+    ClapTrap::name = ref.name + "_clap_name";
+
     *this = ref;
     std::cout << "DiamondTrap Copy Constructor - " << this->name << std::endl;
 }
@@ -60,6 +62,6 @@ void    DiamondTrap::attack(const std::string &target)
 
 void DiamondTrap::printInfo(void)
 {
-    std::cout << "Hello!\nI am " << this->name << "." << std::endl;
+    whoAmI();
     std::cout << "My stats:\nHitpoints: " << this->hitPoints << "\nEnergypoints: " << this->energyPoints << "\nAttack damage: " << this->attackDamage << std::endl;
 }
