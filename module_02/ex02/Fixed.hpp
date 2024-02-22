@@ -48,7 +48,8 @@ public:
     static Fixed& max(Fixed& a, Fixed& b);
     static Fixed& max(const Fixed& a, const Fixed& b);
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
