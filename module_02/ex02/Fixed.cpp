@@ -60,24 +60,26 @@ std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
 	return os;
 }
 
-float Fixed::operator+(const Fixed &other) const
+Fixed Fixed::operator+(const Fixed &other) const
 {
-	return toFloat() + other.toFloat();
+	return Fixed(toFloat() + other.toFloat());
 }
 
-float Fixed::operator-(const Fixed &other) const
+Fixed Fixed::operator-(const Fixed &other) const
 {
-	return toFloat() + other.toFloat();
+	return Fixed(toFloat() + other.toFloat());
 }
 
-float Fixed::operator*(const Fixed &other) const
+Fixed Fixed::operator*(const Fixed &other) const
 {
-	return toFloat() * other.toFloat();
+	return Fixed(toFloat() * other.toFloat());
 }
 
-float Fixed::operator/(const Fixed &other) const
+Fixed Fixed::operator/(const Fixed &other) const
 {
-	return toFloat() / other.toFloat();
+	if (other.toFloat() == 0.0)
+		throw std::invalid_argument("Cannot divide by zero!");
+	return Fixed(toFloat() / other.toFloat());
 }
 
 bool Fixed::operator>(const Fixed &other) const

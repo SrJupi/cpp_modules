@@ -23,10 +23,10 @@ public:
     int     toInt(void) const;
 
     //Arithmetic operators
-    float   operator+(const Fixed& other) const;
-    float   operator-(const Fixed& other) const;
-    float   operator*(const Fixed& other) const;
-    float   operator/(const Fixed& other) const;
+    Fixed   operator+(const Fixed& other) const;
+    Fixed   operator-(const Fixed& other) const;
+    Fixed   operator*(const Fixed& other) const;
+    Fixed   operator/(const Fixed& other) const;
 
     //Comparision operators
     bool operator>(const Fixed& other) const;
