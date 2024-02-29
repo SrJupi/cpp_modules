@@ -10,5 +10,7 @@ static int	orientation(Point const t1, Point const t2, Point const p)
 
 bool	bsp (Point const a, Point const b, Point const c, Point const point)
 {
+	if (orientation(a, b, c) == 0)
+		return false;
 	return (orientation(a, b, point) == orientation(b, c, point) && orientation(b, c, point) == orientation(c, a, point));
 }
