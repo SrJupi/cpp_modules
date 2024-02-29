@@ -23,10 +23,10 @@ public:
     int     toInt(void) const;
 
     //Arithmetic operators
-    float   operator+(const Fixed& other) const;
-    float   operator-(const Fixed& other) const;
-    float   operator*(const Fixed& other) const;
-    float   operator/(const Fixed& other) const;
+    Fixed   operator+(const Fixed& other) const;
+    Fixed   operator-(const Fixed& other) const;
+    Fixed   operator*(const Fixed& other) const;
+    Fixed   operator/(const Fixed& other) const;
 
     //Comparision operators
     bool operator>(const Fixed& other) const;
@@ -47,6 +47,7 @@ public:
     static Fixed& min(const Fixed& a, const Fixed& b);
     static Fixed& max(Fixed& a, Fixed& b);
     static Fixed& max(const Fixed& a, const Fixed& b);
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
