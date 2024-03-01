@@ -67,7 +67,7 @@ Fixed Fixed::operator+(const Fixed &other) const
 
 Fixed Fixed::operator-(const Fixed &other) const
 {
-	return Fixed(toFloat() + other.toFloat());
+	return Fixed(toFloat() - other.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed &other) const
