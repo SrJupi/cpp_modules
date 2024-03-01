@@ -6,24 +6,24 @@
 class ClapTrap
 {
 protected:
-    std::string name;
-    int         hitPoints;
-    int         energyPoints;
-    int         attackDamage;
-    void        doRealAttack(const std::string &target, const std::string &trapName);
+	std::string name;
+	int         hitPoints;
+	int         energyPoints;
+	int         attackDamage;
+	void        doRealAttack(const std::string &target, const std::string &trapName);
 
 public:
-    ClapTrap();
-    ClapTrap(const std::string& newName);
-    ClapTrap(const ClapTrap& ref);
-    ~ClapTrap();
+	ClapTrap();
+	ClapTrap(const std::string& newName);
+	ClapTrap(const ClapTrap& ref);
+	~ClapTrap();
 
-    ClapTrap&	operator=(const ClapTrap& ref);
+	ClapTrap&	operator=(const ClapTrap& ref);
 
-    void        attack(const std::string &target);
-    void        takeDamage(unsigned int amount);
-    void        beRepaired(unsigned int amount);
-    void        printInfo(void);
+	void        attack(const std::string &target);
+	void        takeDamage(unsigned int amount);
+	void        beRepaired(unsigned int amount);
+	void        printInfo(void);
 };
 
 #endif
