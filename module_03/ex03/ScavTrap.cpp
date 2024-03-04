@@ -6,22 +6,18 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	name = "DefaultScav";
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	hitPoints = ScavTrap::baseHP;
+	energyPoints = ScavTrap::baseEP;
+	attackDamage = ScavTrap::baseAttack;
 	std::cout << "ScavTrap Default Constructor - " 
-		<< name
-		<< " hp: " << hitPoints
-		<< " ep: " << energyPoints
-		<< " ad: " << attackDamage
-		<< std::endl;
+		<< name << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &newName) : ClapTrap(newName)
 {
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	hitPoints = ScavTrap::baseHP;
+	energyPoints = ScavTrap::baseEP;
+	attackDamage = ScavTrap::baseAttack;
 	std::cout << "ScavTrap String Constructor - " << name << std::endl;
 }
 
