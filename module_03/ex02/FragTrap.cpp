@@ -31,13 +31,8 @@ FragTrap::~FragTrap()
 
 FragTrap &FragTrap::operator=(const FragTrap &ref)
 {
-	if (this != &ref)
-	{
-		this->name = ref.name;
-		this->hitPoints = ref.hitPoints;
-		this->energyPoints = ref.energyPoints;
-		this->attackDamage = ref.attackDamage;
-	}
+	ClapTrap::operator=(ref);
+	std::cout << "FragTrap Copy Assignment Constructor - " << name << std::endl;
 	return *this;
 }
 

@@ -3,12 +3,11 @@
 
 int main()
 {
-	// Create a FragTrap object with default constructor
+	std::cout << ">> Create a FragTrap object with default and string constructor" << std::endl << std::endl;
 	FragTrap fragtrap1;
-	// Create a FragTrap object with string constructor
 	FragTrap fragtrap2("FragTrap2");
 
-	// Test attack, takeDamage, and beRepaired functionalities
+	std::cout << std::endl << ">> Test attack, takeDamage, and beRepaired functionalities" << std::endl << std::endl;
 	fragtrap1.attack("Target1");
 	fragtrap2.attack("Target2");
 
@@ -18,34 +17,28 @@ int main()
 	fragtrap1.beRepaired(2);
 	fragtrap2.beRepaired(4);
 
-	// Test copy constructor and copy assignment operator
-	FragTrap fragtrap3 = fragtrap1; // This invokes the copy constructor
-	fragtrap3.printInfo();
-	FragTrap fragtrap4 = fragtrap2; // This also invokes the copy constructor
+	std::cout << std::endl << ">> Test high five functionality" << std::endl << std::endl;
+	fragtrap1.highFivesGuys();
+	fragtrap2.highFivesGuys();
+
+	std::cout << std::endl << ">> Test copy constructor and copy assignment operator" << std::endl << std::endl;
+	FragTrap fragtrap3;
+	fragtrap3 = fragtrap1;
+	FragTrap fragtrap4(fragtrap2);
 
 	fragtrap3.attack("Target3");
 	fragtrap4.attack("Target4");
 
-	// Test copy assignment operator
-	fragtrap3 = fragtrap1; // This should invoke the copy assignment operator
-	fragtrap4 = fragtrap2; // This should also invoke the copy assignment operator
-
-	std::cout << "\nThe Life and Death of fragtrap4\n\n";
+	std::cout << "\n>> The Life and Death of fragtrap4\n\n";
 	fragtrap4.printInfo();
 	std::cout << std::endl;
-	fragtrap4.highFivesGuys();
-	std::cout << std::endl;
 	fragtrap4.takeDamage(100);
-	std::cout << std::endl;
-	fragtrap4.takeDamage(10);
 	std::cout << std::endl;
 	fragtrap4.takeDamage(10);
 	std::cout << std::endl;
 	fragtrap4.beRepaired(20);
 	std::cout << std::endl;
 	fragtrap4.attack("Enemy");
-	std::cout << std::endl;
-	fragtrap4.highFivesGuys();
 	std::cout << std::endl;
 	fragtrap4.printInfo();
 
