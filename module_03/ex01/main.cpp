@@ -1,13 +1,13 @@
 #include <iostream>
 #include "ScavTrap.hpp"
 
-int main() {
-	// Create a ScavTrap object with default constructor
+int main()
+{
+	std::cout << ">> Create a ScavTrap object with default and string constructor" << std::endl << std::endl;
 	ScavTrap scavtrap1;
-	// Create a ScavTrap object with string constructor
 	ScavTrap scavtrap2("ScavTrap2");
 
-	// Test attack, takeDamage, and beRepaired functionalities
+	std::cout << std::endl << ">> Test attack, takeDamage, and beRepaired functionalities" << std::endl << std::endl;
 	scavtrap1.attack("Target1");
 	scavtrap2.attack("Target2");
 
@@ -17,34 +17,28 @@ int main() {
 	scavtrap1.beRepaired(2);
 	scavtrap2.beRepaired(4);
 
-	// Test copy constructor and copy assignment operator
-	ScavTrap scavtrap3 = scavtrap1; // This invokes the copy constructor
-	scavtrap3.printInfo();
-	ScavTrap scavtrap4 = scavtrap2; // This also invokes the copy constructor
+	std::cout << std::endl << ">> Test guard the gate functionality" << std::endl << std::endl;
+	scavtrap1.guardGate();
+	scavtrap2.guardGate();
+
+	std::cout << std::endl << ">> Test copy constructor and copy assignment operator" << std::endl << std::endl;
+	ScavTrap scavtrap3;
+	scavtrap3 = scavtrap1;
+	ScavTrap scavtrap4(scavtrap2);
 
 	scavtrap3.attack("Target3");
 	scavtrap4.attack("Target4");
 
-	// Test copy assignment operator
-	scavtrap3 = scavtrap1; // This should invoke the copy assignment operator
-	scavtrap4 = scavtrap2; // This should also invoke the copy assignment operator
-
-	std::cout << "\nThe Life and Death of scavtrap4\n\n";
+	std::cout << "\n>> The Life and Death of scavtrap4\n\n";
 	scavtrap4.printInfo();
 	std::cout << std::endl;
-	scavtrap4.guardGate();
-	std::cout << std::endl;
 	scavtrap4.takeDamage(100);
-	std::cout << std::endl;
-	scavtrap4.takeDamage(10);
 	std::cout << std::endl;
 	scavtrap4.takeDamage(10);
 	std::cout << std::endl;
 	scavtrap4.beRepaired(20);
 	std::cout << std::endl;
 	scavtrap4.attack("Enemy");
-	std::cout << std::endl;
-	scavtrap4.guardGate();
 	std::cout << std::endl;
 	scavtrap4.printInfo();
 
