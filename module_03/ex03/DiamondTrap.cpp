@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 #include "DiamondTrap.hpp"
 
@@ -13,21 +12,20 @@ DiamondTrap::DiamondTrap()
 	std::cout << "DiamondTrap Default Constructor - " << name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &newName) : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(const std::string &newName)
 {
 	this->name = newName;
-	ClapTrap::name = newName + "_clap_name";
+	this->ClapTrap::name = name + "_clap_name";
 	this->hitPoints = FragTrap::baseHP;
 	this->energyPoints = ScavTrap::energyPoints;
 	this->attackDamage = FragTrap::baseAttack;
 	std::cout << "DiamondTrap String Constructor - " << this->name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &ref) : ClapTrap(ref), ScavTrap(ref), FragTrap(ref)
+DiamondTrap::DiamondTrap(const DiamondTrap &ref) : ScavTrap(ref), FragTrap(ref)
 {
 	this->name = ref.name;
 	ClapTrap::name = ref.name + "_clap_name";
-	*this = ref;
 	std::cout << "DiamondTrap Copy Constructor - " << this->name << std::endl;
 }
 
@@ -46,6 +44,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &ref)
 		this->energyPoints = ref.energyPoints;
 		this->attackDamage = ref.attackDamage;
 	}
+	std::cout << "DiamondTrap Copy Assignment Constructor - " << name << std::endl;
 	return *this;
 }
 
@@ -58,10 +57,4 @@ void DiamondTrap::whoAmI(void)
 void DiamondTrap::attack(const std::string &target)
 {
 	this->ScavTrap::attack(target);
-}
-
-void DiamondTrap::printInfo(void)
-{
-	whoAmI();
-	std::cout << "My stats:\nHitpoints: " << this->hitPoints << "\nEnergypoints: " << this->energyPoints << "\nAttack damage: " << this->attackDamage << std::endl;
 }

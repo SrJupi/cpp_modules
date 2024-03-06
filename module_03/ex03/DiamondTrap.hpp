@@ -18,8 +18,6 @@ public:
 
 	void	attack(const std::string &target);
 	void	whoAmI(void);
-	void	printInfo(void);
-
 };
 
 #endif

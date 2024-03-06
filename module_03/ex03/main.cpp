@@ -1,14 +1,13 @@
 #include <iostream>
 #include "DiamondTrap.hpp"
 
-int main() {
-	// Create a DiamondTrap object with default constructor
+int main()
+{
+	std::cout << ">> Create a DiamondTrap object with default and string constructor" << std::endl << std::endl;
 	DiamondTrap diamondtrap1;
-
-	// Create a DiamondTrap object with string constructor
 	DiamondTrap diamondtrap2("DiamondTrap2");
-	// Test attack, takeDamage, and beRepaired functionalities
-	diamondtrap2.printInfo();
+
+	std::cout << std::endl << ">> Test attack, takeDamage, and beRepaired functionalities" << std::endl << std::endl;
 	diamondtrap1.attack("Target1");
 	diamondtrap2.attack("Target2");
 
@@ -18,26 +17,30 @@ int main() {
 	diamondtrap1.beRepaired(2);
 	diamondtrap2.beRepaired(4);
 
-	// Test copy constructor and copy assignment operator
-	DiamondTrap diamondtrap3 = diamondtrap1; // This invokes the copy constructor
-	diamondtrap3.printInfo();
-	DiamondTrap diamondtrap4 = diamondtrap2; // This also invokes the copy constructor
+	std::cout << std::endl << ">> Test guard the gate functionality" << std::endl << std::endl;
+	diamondtrap1.guardGate();
+	diamondtrap2.guardGate();
+
+	std::cout << std::endl << ">> Test high five functionality" << std::endl << std::endl;
+	diamondtrap1.highFivesGuys();
+	diamondtrap2.highFivesGuys();
+
+	std::cout << std::endl << ">> Test who am I functionality" << std::endl << std::endl;
+	diamondtrap1.whoAmI();
+	diamondtrap2.whoAmI();
+
+	std::cout << std::endl << ">> Test copy constructor and copy assignment operator" << std::endl << std::endl;
+	DiamondTrap diamondtrap3;
+	diamondtrap3 = diamondtrap1;
+	DiamondTrap diamondtrap4(diamondtrap2);
 
 	diamondtrap3.attack("Target3");
 	diamondtrap4.attack("Target4");
 
-	// Test copy assignment operator
-	diamondtrap3 = diamondtrap1; // This should invoke the copy assignment operator
-	diamondtrap4 = diamondtrap2; // This should also invoke the copy assignment operator
-
-	std::cout << "\nThe Life and Death of diamondtrap4\n\n";
+	std::cout << "\n>> The Life and Death of diamondtrap4\n\n";
 	diamondtrap4.printInfo();
 	std::cout << std::endl;
-	diamondtrap4.highFivesGuys();
-	std::cout << std::endl;
 	diamondtrap4.takeDamage(100);
-	std::cout << std::endl;
-	diamondtrap4.takeDamage(10);
 	std::cout << std::endl;
 	diamondtrap4.takeDamage(10);
 	std::cout << std::endl;
@@ -45,9 +48,7 @@ int main() {
 	std::cout << std::endl;
 	diamondtrap4.attack("Enemy");
 	std::cout << std::endl;
-	diamondtrap4.highFivesGuys();
-	std::cout << std::endl;
 	diamondtrap4.printInfo();
-
+	std::cout << std::endl;
 	return 0;
 }

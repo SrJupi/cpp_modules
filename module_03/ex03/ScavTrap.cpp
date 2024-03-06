@@ -3,21 +3,19 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap("DefaultScav")
 {
-	name = "DefaultScav";
-	hitPoints = ScavTrap::baseHP;
-	energyPoints = ScavTrap::baseEP;
-	attackDamage = ScavTrap::baseAttack;
-	std::cout << "ScavTrap Default Constructor - " 
-		<< name << std::endl;
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
+	std::cout << "ScavTrap Default Constructor - " << name << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &newName) : ClapTrap(newName)
 {
-	hitPoints = ScavTrap::baseHP;
-	energyPoints = ScavTrap::baseEP;
-	attackDamage = ScavTrap::baseAttack;
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 	std::cout << "ScavTrap String Constructor - " << name << std::endl;
 }
 
@@ -33,13 +31,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &ref)
 {
-	if (this != &ref)
-	{
-		this->name = ref.name;
-		this->hitPoints = ref.hitPoints;
-		this->energyPoints = ref.energyPoints;
-		this->attackDamage = ref.attackDamage;
-	}
+	ClapTrap::operator=(ref);
+	std::cout << "ScavTrap Copy Assignment Constructor - " << name << std::endl;
 	return *this;
 }
 
@@ -51,8 +44,7 @@ void ScavTrap::guardGate(void)
 		return;
 	}
 	energyPoints--;
-	std::cout << "\n\n"
-			  << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
+	std::cout << name << " hold the door\nhold the door\nhold door\nholdoor\nhodor\nhodor\nhodor" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)

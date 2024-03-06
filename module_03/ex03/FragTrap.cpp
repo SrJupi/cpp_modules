@@ -5,18 +5,17 @@
 
 FragTrap::FragTrap() : ClapTrap("DefaultFrag")
 {
-	hitPoints = FragTrap::baseHP;
-	energyPoints = FragTrap::baseEP;
-	attackDamage = FragTrap::baseAttack;
-	std::cout << "FragTrap Default Constructor - "
-		<< name << std::endl;
+	hitPoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
+	std::cout << "FragTrap Default Constructor - " << name << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &newName) : ClapTrap(newName)
 {
-	hitPoints = FragTrap::baseHP;
-	energyPoints = FragTrap::baseEP;
-	attackDamage = FragTrap::baseAttack;
+	hitPoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
 	std::cout << "FragTrap String Constructor - " << name << std::endl;
 }
 
@@ -32,13 +31,8 @@ FragTrap::~FragTrap()
 
 FragTrap &FragTrap::operator=(const FragTrap &ref)
 {
-	if (this != &ref)
-	{
-		this->name = ref.name;
-		this->hitPoints = ref.hitPoints;
-		this->energyPoints = ref.energyPoints;
-		this->attackDamage = ref.attackDamage;
-	}
+	ClapTrap::operator=(ref);
+	std::cout << "FragTrap Copy Assignment Constructor - " << name << std::endl;
 	return *this;
 }
 
