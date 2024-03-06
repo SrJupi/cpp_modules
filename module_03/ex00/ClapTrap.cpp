@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name("NoName"), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap() : name("DefaultClap"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
 	std::cout << "ClapTrap Default Constructor - " << name << std::endl;
 }
@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(const std::string &newName) : name(newName), hitPoints(10), e
 	std::cout << "ClapTrap String Constructor - " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &ref) : name(ref.name + " copy constructed"), hitPoints(ref.hitPoints), energyPoints(ref.energyPoints), attackDamage(ref.attackDamage)
+ClapTrap::ClapTrap(const ClapTrap &ref) : name(ref.name + "_copyConstructed"), hitPoints(ref.hitPoints), energyPoints(ref.energyPoints), attackDamage(ref.attackDamage)
 {
 	std::cout << "ClapTrap Copy Constructor - " << name << std::endl;
 }
@@ -25,7 +25,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &ref)
 {
 	if (this != &ref)
 	{
-		this->name = ref.name + " assignment copy";
+		this->name = ref.name + "_assignmentCopy";
 		this->hitPoints = ref.hitPoints;
 		this->energyPoints = ref.energyPoints;
 		this->attackDamage = ref.attackDamage;
@@ -51,7 +51,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "Stop! Stop! He's Already Dead!" << std::endl;
 		return;
 	}
-	std::cout << "ClapTrap " << name << " was hit... It loses " << amount << " of hit points!" << std::endl;
+	std::cout << "ClapTrap " << name << " was hit... It loses " << amount << " hit points!" << std::endl;
 	hitPoints -= amount;
 	if (hitPoints < 0)
 		hitPoints = 0;
