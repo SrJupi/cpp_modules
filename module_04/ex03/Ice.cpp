@@ -1,15 +1,16 @@
 #include <iostream>
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
-	this->type = "Ice";
 	std::cout << "Ice Default Constructor" << std::endl;
 }
 
 
-Ice::Ice(const Ice& ref) : Ice()
+Ice::Ice(const Ice& ref) : AMateria("ice")
 {
+	(void)ref;
 	std::cout << "Ice Copy Constructor" << std::endl;
 }
 
@@ -20,8 +21,7 @@ Ice::~Ice()
 
 Ice&	Ice::operator=(const Ice& ref)
 {
-	if (this != &ref)
-		this->type = ref.type;
+	(void)ref;
 	std::cout << "Ice Copy Assignment Constructor" << std::endl;
 	return (*this);
 }
@@ -33,10 +33,10 @@ void    Ice::makeSound() const
 
 AMateria *Ice::clone() const
 {
-    return new Ice();
+	return new Ice();
 }
 
 void Ice::use(ICharacter &target)
 {
-	std::cout << "Freeze!" << std::endl;
+	std::cout << " * Freezed " << target.getName() << " * "<<std::endl;
 }

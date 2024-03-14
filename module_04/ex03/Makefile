@@ -1,11 +1,11 @@
 NAME = magic
 
-HEADER = AMateria.hpp Character.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
+HEADER = AMateria.hpp Character.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp Cure.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC_FILES = main.cpp AMateria.cpp Character.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp
+SRC_FILES = main.cpp AMateria.cpp Character.cpp Ice.cpp MateriaSource.cpp Cure.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 
