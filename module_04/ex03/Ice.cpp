@@ -38,5 +38,5 @@ AMateria *Ice::clone() const
 
 void Ice::use(ICharacter &target)
 {
-	std::cout << " * Freezed " << target.getName() << " * "<<std::endl;
+	std::cout << " * Freezed " << target.getName() << " * " <<std::endl;
 }
