@@ -53,6 +53,11 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& ref)
 void MateriaSource::learnMateria(AMateria* m){
 	for (int i = 0; i < 4; i++)
 	{
+		if (inventory[i] == m)
+		{
+			std::cout << "Instance already equipped" << std::endl;
+			return ;
+		}
 		if (inventory[i] == NULL)
 		{
 			inventory[i] = m;
