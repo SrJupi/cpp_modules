@@ -6,6 +6,7 @@
 #include "WrongCat.hpp"
 
 int main( ) {
+	std::cout << "Subject tests" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -16,6 +17,8 @@ int main( ) {
 	j->makeSound();
 	meta->makeSound();
 
+	std::cout << std::endl << "Test Copy Constuctor" << std::endl;
+
 	Animal k(*j);
 	std::cout << k.getType() << " " << std::endl;
 	k.makeSound();
@@ -24,7 +27,7 @@ int main( ) {
 	delete j;
 	delete i;
 
-	std::cout << "\n\nCreating WrongAnimals... why? Don't know..." << std::endl;
+	std::cout << "\nCreating WrongAnimals... why? Don't know..." << std::endl;
 	WrongAnimal a;
 	std::cout << a.getType() << " " << std::endl;
 	a.makeSound();
