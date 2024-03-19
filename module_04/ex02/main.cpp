@@ -19,6 +19,9 @@ int main() {
 			animalArray[i] = new Dog();
 	}
 	for (int i = 0; i < numAnimals; i++)
+	{
+		animalArray[i]->makeSound();
 		delete animalArray[i];
+	}
 	return 0;
 }
