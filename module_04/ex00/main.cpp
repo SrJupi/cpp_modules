@@ -14,26 +14,18 @@ int main( ) {
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	j->makeSound(); //will output the dog sound!
 	meta->makeSound();
 
-	std::cout << std::endl << "Test Copy Constuctor" << std::endl;
-
-	Animal k(*j);
-	std::cout << k.getType() << " " << std::endl;
-	k.makeSound();
-
-	delete meta;
-	delete j;
-	delete i;
-
 	std::cout << "\nCreating WrongAnimals... why? Don't know..." << std::endl;
-	WrongAnimal a;
-	std::cout << a.getType() << " " << std::endl;
-	a.makeSound();
-	WrongCat c;
-	std::cout << c.getType() << " " << std::endl;
-	c.makeSound();
+	const WrongAnimal* wrongmeta = new WrongAnimal();
+	const WrongAnimal* wrongi = new WrongCat();
+	std::cout << wrongmeta->getType() << " " << std::endl;
+	std::cout << wrongi->getType() << " " << std::endl;
+	wrongi->makeSound(); //will output the wronganimal sound!
+	wrongmeta->makeSound();
 
+	delete wrongmeta;
+	delete wrongi;
 	return 0;
 }
