@@ -8,8 +8,6 @@ class Character : public ICharacter
 private:
     AMateria    *inventory[4];
     std::string name;
-    Character   *matryoshka;
-    int         is_matryoshka;
 
 public:
     Character();

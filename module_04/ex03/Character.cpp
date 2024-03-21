@@ -2,17 +2,18 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character() : name("Default Character"), is_matryoshka(0)
+Character::Character() : name("Default Character")
 {
+	std::cout << "Character constructor " << name << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		inventory[i] = NULL;
 	}
 }
 
-Character::Character(std::string nName) : name(nName), is_matryoshka(0)
+Character::Character(std::string nName) : name(nName)
 {
-	std::cout << "Character constructor " << nName << std::endl;
+	std::cout << "Character Copy constructor " << nName << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		inventory[i] = NULL;
@@ -21,25 +22,27 @@ Character::Character(std::string nName) : name(nName), is_matryoshka(0)
 
 Character::Character(const Character& ref) : name(ref.getName())
 {
+	std::cout << "Character constructor " << ref.name << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		inventory[i] = ref.inventory[i]->clone();
+		if (ref.inventory[i])
+			inventory[i] = ref.inventory[i]->clone();
 	}
 }
 
 Character::~Character()
 {
-	if (matryoshka != NULL)
-		delete matryoshka;
 	for (int i = 0; i < 4; i++)
 	{
-		delete inventory[i];
+		if (inventory[i])
+			delete inventory[i];
 	}
 	std::cout << "Character destructor " << getName() << std::endl;
 }
 
 Character&	Character::operator=(const Character& ref)
 {
+	std::cout << "Character assignement constructor " << ref.name << std::endl;
 	if (this != &ref)
 	{
 		name = ref.getName();
@@ -47,7 +50,9 @@ Character&	Character::operator=(const Character& ref)
 		{
 			if (inventory[i])
 				delete inventory[i];
-			inventory[i] = ref.inventory[i]->clone();
+			inventory[i] = NULL;
+			if (ref.inventory[i])
+				inventory[i] = ref.inventory[i]->clone();
 		}
 	}
 	return (*this);
@@ -136,8 +141,6 @@ void Character::unequip(int idx)
  */
 void Character::use(int idx, ICharacter &target)
 {
-	if (is_matryoshka)
-		return ;
 	if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
 		return ;
 	inventory[idx]->use(target);
