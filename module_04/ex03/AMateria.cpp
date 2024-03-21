@@ -10,9 +10,9 @@ AMateria::AMateria(std::string const &type) : equipped(false)
 	this->type = type;
 }
 
-AMateria::AMateria(const AMateria &ref)
+AMateria::AMateria(const AMateria &ref) : equipped(false)
 {
-	this->type = ref.type;
+	(void)ref;
 }
 
 AMateria::~AMateria()
@@ -30,9 +30,9 @@ std::string const &AMateria::getType() const
 	return (this->type);
 }
 
-void AMateria::setEquipped()
+void AMateria::setEquipped(bool status)
 {
-	equipped = true;
+	equipped = status;
 }
 
 bool AMateria::getEquipped()

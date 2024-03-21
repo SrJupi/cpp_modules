@@ -22,7 +22,7 @@ public:
 	std::string const & getType() const;
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target) = 0;
-	void setEquipped();
+	void setEquipped(bool status);
 	bool getEquipped();
 };
 
