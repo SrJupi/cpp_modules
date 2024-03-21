@@ -36,3 +36,8 @@ void    Cat::makeSound() const
 {
 	std::cout << "Cat noises..." << std::endl;
 }
+
+void	Cat::printBrain() const
+{
+	std::cout << this->brain << std::endl;
+}
