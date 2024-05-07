@@ -12,7 +12,7 @@ class Bureaucrat
 private:
 	const std::string name;
 	int grade;
-	void checkGrade(void);
+	void checkGrade(int g);
 
 public:
 	Bureaucrat();

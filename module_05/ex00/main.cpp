@@ -28,9 +28,9 @@ int main(void)
         std::cerr << e.what() << std::endl;
     }
 
+    Bureaucrat bureaucrat2("bob", 150);
     try 
 	{
-        Bureaucrat bureaucrat2("bob", 150);
         bureaucrat2.decrementGrade();
         std::cout << bureaucrat2 << std::endl;
     }
@@ -38,4 +38,6 @@ int main(void)
 	{
         std::cerr << e.what() << std::endl;
     }
+    std::cout << bureaucrat2 << std::endl;
+
 }

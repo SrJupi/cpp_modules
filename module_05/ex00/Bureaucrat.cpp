@@ -4,9 +4,10 @@ Bureaucrat::Bureaucrat() : name("Default Bureaucrat"), grade(150)
 {
 }
 
-Bureaucrat::Bureaucrat(std::string n, int g) : name(n), grade(g)
+Bureaucrat::Bureaucrat(std::string n, int g) : name(n)
 {
-	checkGrade();
+	checkGrade(g);
+	grade = g;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &ref) : name(ref.getName()),
@@ -37,14 +38,14 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
+	checkGrade(grade - 1);
 	grade--;
-	checkGrade();
 }
 
 void Bureaucrat::decrementGrade(void)
 {
+    checkGrade(grade + 1);
     grade++;
-    checkGrade();
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
@@ -57,11 +58,11 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
-void Bureaucrat::checkGrade(void)
+void Bureaucrat::checkGrade(int g)
 {
-	if (grade < HIGHEST)
+	if (g < HIGHEST)
 		throw Bureaucrat::GradeTooHighException();
-	if (grade > LOWEST)
+	if (g > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 }
 
