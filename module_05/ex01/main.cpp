@@ -20,7 +20,7 @@ int main( void )
     try {
         bureaucrat.signForm(form2);
     } catch (Form::GradeTooLowException &e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     std::cout << form2 << std::endl;
 
