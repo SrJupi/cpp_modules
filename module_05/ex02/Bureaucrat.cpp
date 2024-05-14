@@ -73,10 +73,21 @@ void	Bureaucrat::signAForm(AForm &ref) {
 		std::cout << getName() << " signed " << ref.getName() << std::endl;
 	}
 	catch (AForm::GradeTooLowException &e) {
-		std::cout << getName() << " could't sign " << ref.getName() << " because " << e.what() << std::endl;
+		std::cerr << getName() << " could't sign " << ref.getName() << " because " << e.what() << std::endl;
 	}
 }
 
+void Bureaucrat::executeForm(AForm &ref)
+{
+	try {
+		ref.execute(*this);
+		std::cout << name << " executed " << ref.getName() << std::endl;
+	} catch (AForm::NotSignedException &e) {
+		std::cerr << name << " cannot execute " << ref.getName() << ": " << e.what() << std::endl;
+	} catch (AForm::GradeTooLowException &e) {
+		std::cerr << name << " cannot execute " << ref.getName() << ": " << e.what() << std::endl;
+	}
+}
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &ref)
 {
