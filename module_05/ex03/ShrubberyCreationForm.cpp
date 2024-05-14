@@ -4,7 +4,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): target("no target")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string t): AForm("ShrubberyCreationForm", 145, 137), target(t)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string t): AForm("Shrubbery Creation Form", 145, 137), target(t)
 {
 }
 

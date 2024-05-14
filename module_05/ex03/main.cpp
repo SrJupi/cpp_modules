@@ -2,28 +2,27 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main( void )
 {
-    Bureaucrat junior("Junior bureaucrat", 150);
-    Bureaucrat bureaucrat("Vice president",10);
-    ShrubberyCreationForm form("BCN");
+    Intern intern;
+    AForm *form;
 
-    junior.signAForm(form);
-    bureaucrat.signAForm(form);
-    junior.executeForm(form);
-    bureaucrat.executeForm(form);
+    form = intern.makeForm("HOLA!!!", "Lucas");
+    std::cout << form << std::endl;
 
-    PresidentialPardonForm pardon("Ford Perfect");
-    bureaucrat.signAForm(pardon);
-    bureaucrat.executeForm(pardon);
-    Bureaucrat president("El presidente", 1);
-    president.executeForm(pardon);
+    form = intern.makeForm("shrubbery creation", "Lucas");
+    std::cout << *form << std::endl;
+    delete form;
 
-    RobotomyRequestForm robot("Bender");
-    bureaucrat.executeForm(robot);
-    bureaucrat.signAForm(robot);
-    bureaucrat.executeForm(robot);
+    form = intern.makeForm("robotomy request", "Lucas");
+    std::cout << *form << std::endl;
+    delete form;
+    
+    form = intern.makeForm("presidential pardon", "Lucas");
+    std::cout << *form << std::endl;
+    delete form;
 
     return 0;
 }

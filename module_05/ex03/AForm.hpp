@@ -22,7 +22,7 @@ protected:
 
 
 public:
-	~AForm();
+	virtual ~AForm();
 
 	std::string getName(void) const;
 	bool getSigned(void) const;
