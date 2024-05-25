@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "Span.hpp"
 
 int main() {
@@ -96,6 +98,27 @@ int main() {
 
         int shortest = span.shortestSpan();
         int longest = span.longestSpan();
+        std::cout << "Shortest Span: " << shortest << std::endl;
+        std::cout << "Longest Span: " << longest << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    //Normal Span, test addNumbers with iterator and random numbers
+    try {
+        Span span(10000);
+        std::srand(std::time(NULL));
+
+        std::vector<int> randomNumbers;
+        for (int i = 0; i < 10000; ++i) {
+            randomNumbers.push_back(rand() % 100000);
+        }
+        span.addNumbers(randomNumbers.begin(), randomNumbers.end());
+
+        int shortest = span.shortestSpan();
+        int longest = span.longestSpan();
+
         std::cout << "Shortest Span: " << shortest << std::endl;
         std::cout << "Longest Span: " << longest << std::endl;
     } catch (const std::exception& e) {

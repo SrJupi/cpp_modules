@@ -33,8 +33,11 @@ int Span::shortestSpan(void)
     std::sort(numbers.begin(), numbers.end());
     int minSpan = numbers[1] - numbers[0];
     for (size_t i = 2; i < numbers.size(); i++) {
-        if (numbers[i] - numbers[i - 1] < minSpan)
+        if (numbers[i] - numbers[i - 1] < minSpan) {
             minSpan = numbers[i] - numbers[i - 1];
+            if (minSpan == 0)
+                break ;
+        }
     }
 	return (minSpan);
 }
