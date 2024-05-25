@@ -59,7 +59,7 @@ Span &Span::operator=(const Span &ref)
 
 const char *Span::FullOfSpam::what() const throw()
 {
-	return ("I am alredy full");
+	return ("I am already full");
 }
 
 const char *Span::NotEnoughSpam::what() const throw()

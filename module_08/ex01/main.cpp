@@ -3,6 +3,18 @@
 
 int main() {
 
+    //Normal span, subject test
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+    std::cout << std::endl;
+
+
     //Normal Span, no exception
     try { 
         Span span(10);
@@ -18,6 +30,7 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl;
 
     //Add more numbers than size, FullOfSpam exception
     try { 
@@ -34,6 +47,8 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl;
+
 
     //Not enough number to calculate shortest spam, NotEnoughSpam exception
     try { 
@@ -50,6 +65,8 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl;
+
 
     //Not enough number to calculate longest spam, NotEnoughSpam exception
     try { 
@@ -66,6 +83,8 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl;
+
 
     //Normal Span, no exception, 50000 elements
     try { 
