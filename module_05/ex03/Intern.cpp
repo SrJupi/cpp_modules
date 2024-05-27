@@ -16,7 +16,8 @@ Intern::~Intern()
 
 Intern&	Intern::operator=(const Intern& ref)
 {
-    *this=ref;
+    if (this != &ref)
+        *this = ref;
     return (*this);
 }
 
