@@ -16,6 +16,9 @@ int main( ) {
 	i->makeSound(); //will output the cat sound!
 	j->makeSound(); //will output the dog sound!
 	meta->makeSound();
+	delete meta;
+	delete i;
+	delete j;
 
 	std::cout << "\nCreating WrongAnimals... why? Don't know..." << std::endl;
 	const WrongAnimal* wrongmeta = new WrongAnimal();
