@@ -15,7 +15,8 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &ref)
 {
-	*this = ref;
+	if (this != &ref)
+		*this = ref;
 	return (*this);
 }
 
