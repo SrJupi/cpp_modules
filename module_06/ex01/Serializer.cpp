@@ -15,7 +15,8 @@ Serializer::~Serializer()
 
 Serializer &Serializer::operator=(const Serializer &ref)
 {
-	*this = ref;
+	if (this != &ref)
+		*this = ref;
 	return (*this);
 }
 
