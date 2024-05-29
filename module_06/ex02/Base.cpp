@@ -6,12 +6,9 @@ Base::~Base()
 
 Base * generate(void)
 {
-	int	gen;
-
 	std::srand(std::time(NULL));
     std::cout << "Generating: ";
-	gen = std::rand() % 3;
-	switch (gen)
+	switch (std::rand() % 3)
 	{
 	case 0:
         std::cout << "A class" << std::endl;
