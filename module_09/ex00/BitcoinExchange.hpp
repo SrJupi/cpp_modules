@@ -7,18 +7,25 @@
 #include <sstream>
 #include <fstream>
 #include <exception>
+#include <cstdlib>
+#include <string>
+
 
 class BitcoinExchange
 {
 private:
-    static std::string databasePath;
-    std::map<std::tm, float> database;
+    static std::string dbPath;
+    std::map<std::tm, float> dbMap;
     std::tm createDate(std::string dateString);
     void    createDatabase();
+    void    findInMap(std::tm tmDate, float value);
+    float   checkFloat(std::string floatStr);
 public:
     BitcoinExchange();
     BitcoinExchange(const BitcoinExchange& ref);
     ~BitcoinExchange();
+
+    void convertInput(std::string inputPath);
 
     void printDatabase();
 
@@ -29,9 +36,31 @@ public:
     public:
         const char* what() const throw();
     };
+
+    class OpenError : public std::exception {
+    public:
+        const char* what() const throw();
+    };
+
+    class NegativeNumberError : public std::exception {
+    public:
+        const char* what() const throw();
+    };
+
+    class TooBigNumberError : public std::exception {
+    public:
+        const char* what() const throw();
+    };
+
+    class DateNotFound : public std::exception {
+    public:
+        const char* what() const throw();
+    };
 };
 
 bool operator<(const std::tm& first, const std::tm& second);
+bool operator==(const std::tm& first, const std::tm& second);
+
 std::ostream & operator<<(std::ostream & os, std::tm const & ref);
 
 #endif
