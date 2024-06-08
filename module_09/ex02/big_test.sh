@@ -16,5 +16,5 @@ for SIMULATION in $(seq 1 $NUM_SIMULATIONS); do
   RANDOM_NUMBERS=$(shuf -i 1-30000 -n $N | tr "\n" " ")
   
   # Run the PmergeMe program with the generated random numbers
-  ./PmergeMe "$RANDOM_NUMBERS"
+  ./PmergeMe $RANDOM_NUMBERS
 done

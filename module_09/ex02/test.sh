@@ -10,7 +10,7 @@ for N in {1..1000}; do
     RANDOM_NUMBERS=$(shuf -i 1-10000 -n $N | tr "\n" " ")
     
     # Run the PmergeMe program with the generated random numbers
-    ./PmergeMe "$RANDOM_NUMBERS"
+    ./PmergeMe $RANDOM_NUMBERS
     
   done
 done
