@@ -30,15 +30,11 @@ int main() {
 
     std::cout << "Double intArray:" << std::endl;
     iter(intArray, 5, doubleElement<int>);
-
-    std::cout << "Double doubleArray:" << std::endl;
-    iter(doubleArray, 5, doubleElement<double>);
-
-    std::cout << "Printing intArray:" << std::endl;
     iter(intArray, 5, printElement<int>);
     std::cout << std::endl;
 
-    std::cout << "Printing doubleArray:" << std::endl;
+    std::cout << "Double doubleArray:" << std::endl;
+    iter(doubleArray, 5, doubleElement<double>);
     iter(doubleArray, 5, printElement<double>);
     std::cout << std::endl;
 
