@@ -26,7 +26,7 @@ int main() {
         // Testing with an element not in the container
         easyfind(vec, 6);
     } catch (const NotFoundException& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception caught: " <<e.what() << std::endl;
     }
 
     return 0;
