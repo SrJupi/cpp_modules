@@ -9,17 +9,18 @@
 #include <exception>
 #include <cstdlib>
 #include <string>
+#include <iomanip>
 
 
 class BitcoinExchange
 {
 private:
     static std::string dbPath;
-    std::map<std::tm, float> dbMap;
+    std::map<std::tm, double> dbMap;
     std::tm createDate(std::string dateString);
     void    createDatabase();
     void    findInMap(std::tm tmDate, float value);
-    float   checkFloat(std::string floatStr);
+    float   checkDouble(std::string floatStr);
 public:
     BitcoinExchange();
     BitcoinExchange(const BitcoinExchange& ref);

@@ -49,7 +49,7 @@ void BitcoinExchange::createDatabase()
 			{
 				try
 				{
-					float value = std::atof(valueStr.c_str());
+					double value = std::atof(valueStr.c_str());
 					dbMap[createDate(date)] = value;
 				}
 				catch (const std::exception &e)
@@ -68,8 +68,8 @@ void BitcoinExchange::createDatabase()
 
 void BitcoinExchange::findInMap(std::tm tmDate, float value)
 {
-	float                               exchangeRate;
-    std::map<std::tm, float>::iterator  it = dbMap.lower_bound(tmDate);
+	double                               exchangeRate;
+    std::map<std::tm, double>::iterator  it = dbMap.lower_bound(tmDate);
 	if (it->first == tmDate)
 		exchangeRate = it->second;
 	else if (it == dbMap.begin())
@@ -79,13 +79,13 @@ void BitcoinExchange::findInMap(std::tm tmDate, float value)
 		it--;
 		exchangeRate = it->second;
 	}
-	std::cout << tmDate << " => " << value << " = " << value
-		* exchangeRate << std::endl;
+	std::cout << std::fixed << std::setprecision(2);
+	std::cout << tmDate << " => " << value << " = " << value * exchangeRate << std::endl;
 }
 
-float BitcoinExchange::checkFloat(std::string floatStr)
+float BitcoinExchange::checkDouble(std::string doubleStr)
 {
-    float   value = std::atof(floatStr.c_str());
+    double   value = std::atof(doubleStr.c_str());
     if (value < 0)
         throw NegativeNumberError();
     if (value > 1000)
@@ -126,7 +126,7 @@ void BitcoinExchange::convertInput(std::string inputPath)
 				while (date[date.size() - 1] == ' ')
 					date.erase(date.size() - 1);
 				findInMap(createDate(date),
-                checkFloat(valueStr));
+                checkDouble(valueStr));
 			}
 			catch (const std::exception &e)
 			{
@@ -144,7 +144,7 @@ void BitcoinExchange::convertInput(std::string inputPath)
 void BitcoinExchange::printDatabase()
 {
 	for (std::map<std::tm,
-		float>::iterator it = dbMap.begin(); it != dbMap.end(); it++)
+		double>::iterator it = dbMap.begin(); it != dbMap.end(); it++)
 	{
 		std::cout << it->first << " -> " << it->second << std::endl;
 	}
