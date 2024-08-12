@@ -8,11 +8,11 @@ int main(int argc, char *argv[]){
     argv++;
     try {
         std::vector<int> unsortedVec = checkInput(argv);
-        std::cout << "Before vector: " << unsortedVec << std::endl;
+        std::cout << "Before: " << unsortedVec << std::endl;
         const std::clock_t vec_start = std::clock();
         std::vector<int> sortedVec = mergeInsertSort(unsortedVec);
         const std::clock_t vec_end = std::clock();
-        std::cout << "After vector: " << sortedVec << std::endl;
+        std::cout << "After: " << sortedVec << std::endl;
         std::cout << "Time to process a range of "
             << sortedVec.size()
             << " elements with std::vector = "
@@ -20,11 +20,9 @@ int main(int argc, char *argv[]){
             << "ms" << std::endl << std::endl;
         
         std::deque<int> unsortedDeq (unsortedVec.begin(), unsortedVec.end());
-        std::cout << "Before deque: " << unsortedDeq << std::endl;
         const std::clock_t deq_start = std::clock();
         std::deque<int> sortedDeq = mergeInsertSort(unsortedDeq);
         const std::clock_t deq_end = std::clock();
-        std::cout << "After deque: " << sortedDeq << std::endl;
         std::cout << "Time to process a range of "
             << sortedDeq.size()
             << " elements with std::deque = "
