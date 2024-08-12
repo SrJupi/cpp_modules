@@ -88,7 +88,7 @@ RPN &RPN::operator=(const RPN &ref)
 
 const char *RPN::NotEnoughNumbersError::what() const throw()
 {
-	return ("Insufficent amout of numbers to perform an operation");
+	return ("Insufficent amount of numbers to perform an operation");
 }
 
 const char *RPN::OperatorError::what() const throw()
